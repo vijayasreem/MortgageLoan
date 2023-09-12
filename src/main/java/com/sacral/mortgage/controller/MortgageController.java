@@ -1,69 +1,95 @@
-A method must be added to close the Document Verification App and thank the user for using the service
-
 package com.sacral.mortgage.controller;
-
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
-import com.sacral.mortgage.model.Mortgage;
+import com.sacral.mortgage.model.User;
 import com.sacral.mortgage.service.MortgageService;
 
-@RestController
 public class MortgageController {
+    @Autowired
+    private MortgageService mortgageService;
 
-	@Autowired
-	private MortgageService mortgageService;
-	
-	// Method to open the Document Verification App and greet the user with a welcoming message
-    @GetMapping("/openDocumentVerificationApp")
-    public Optional<Mortgage> openDocumentVerificationApp() {
-    	return mortgageService.openDocumentVerificationApp();
+    @GetMapping("/user/{id}")
+    public User getUserById(@PathVariable Long id) {
+        return mortgageService.findUserById(id);
     }
-    
-    // Method to verify identity and address as "yes" or "no" using the provided input
-    @GetMapping("/verifyIdentityAddress")
-    public Optional<Mortgage> verifyIdentityAddress(@RequestParam String input) {
-    	return mortgageService.verifyIdentityAddress(input);
+
+    @GetMapping("/user/identification")
+    public User getUserByIdentification(@RequestParam String identification) {
+        return mortgageService.findUserByIdentification(identification);
     }
-    
-    // Method to validate credit evaluation
-    @GetMapping("/validateCreditEvaluation")
-    public Optional<Mortgage> validateCreditEvaluation(@RequestParam double income, @RequestParam int creditScore) {
-    	return mortgageService.validateCreditEvaluation(income, creditScore);
+
+    @GetMapping("/user/proof-of-income")
+    public User getUserByProofOfIncome(@RequestParam String proofOfIncome) {
+        return mortgageService.findUserByProofOfIncome(proofOfIncome);
     }
-    
-    // Method to determine whether the payment is approved based on the payment amount
-    @GetMapping("/paymentApproval")
-    public Optional<Mortgage> paymentApproval(@RequestParam double vehicleValue) {
-    	return mortgageService.paymentApproval(vehicleValue);
+
+    @GetMapping("/user/credit-history")
+    public User getUserByCreditHistory(@RequestParam String creditHistory) {
+        return mortgageService.findUserByCreditHistory(creditHistory);
     }
-    
-    // Method to verify the vendor information
-    @GetMapping("/verifyVendorInformation")
-    public Optional<Mortgage> verifyVendorInformation() {
-    	return mortgageService.verifyVendorInformation();
+
+    @GetMapping("/user/employment-details")
+    public User getUserByEmploymentDetails(@RequestParam String employmentDetails) {
+        return mortgageService.findUserByEmploymentDetails(employmentDetails);
     }
-    
-    // Method to confirm funds availability
-    @GetMapping("/confirmFundsAvailability")
-    public Optional<Mortgage> confirmFundsAvailability() {
-    	return mortgageService.confirmFundsAvailability();
+
+    @GetMapping("/user/loan-amount")
+    public User getUserByLoanAmount(@RequestParam Double loanAmount) {
+        return mortgageService.findUserByLoanAmount(loanAmount);
     }
-    
-    // Method to grant payment approval
-    @GetMapping("/grantPaymentApproval")
-    public Optional<Mortgage> grantPaymentApproval() {
-    	return mortgageService.grantPaymentApproval();
+
+    @GetMapping("/user/interest-rate")
+    public User getUserByInterestRate(@RequestParam Double interestRate) {
+        return mortgageService.findUserByInterestRate(interestRate);
     }
-    
-    // Method to close the Document Verification App and thank the user for using the service
-    @GetMapping("/closeDocumentVerificationApp")
-    public Optional<Mortgage> closeDocumentVerificationApp() {
-    	return mortgageService.closeDocumentVerificationApp();
+
+    @GetMapping("/user/repayment-period")
+    public User getUserByRepaymentPeriod(@RequestParam Double repaymentPeriod) {
+        return mortgageService.findUserByRepaymentPeriod(repaymentPeriod);
     }
-    
-}
+
+    @GetMapping("/user/assessment-value")
+    public User getUserByAssessmentValue(@RequestParam Double assessmentValue) {
+        return mortgageService.findUserByAssessmentValue(assessmentValue);
+    }
+
+    @GetMapping("/user/approved-loan-amount")
+    public User getUserByApprovedLoanAmount(@RequestParam Double approvedLoanAmount) {
+        return mortgageService.findUserByApprovedLoanAmount(approvedLoanAmount);
+    }
+
+    @GetMapping("/user/vendor-name")
+    public User getUserByVendorName(@RequestParam String vendorName) {
+        return mortgageService.findUserByVendorName(vendorName);
+    }
+
+    @GetMapping("/user/payment-amount")
+    public User getUserByPaymentAmount(@RequestParam Double paymentAmount) {
+        return mortgageService.findUserByPaymentAmount(paymentAmount);
+    }
+
+    @GetMapping("/user/annual-income")
+    public User getUserByAnnualIncome(@RequestParam Double annualIncome) {
+        return mortgageService.findUserByAnnualIncome(annualIncome);
+    }
+
+    @GetMapping("/user/credit-score")
+    public User getUserByCreditScore(@RequestParam Integer creditScore) {
+        return mortgageService.findUserByCreditScore(creditScore);
+    }
+
+    @GetMapping("/user/payment-approved")
+    public User getUserByPaymentApproved(@RequestParam Boolean paymentApproved) {
+        return mortgageService.findUserByPaymentApproved(paymentApproved);
+    }
+
+    @PostMapping("/document-verification")
+    public void openDocumentVerificationApp() {
+        mortgageService.openDocumentVerificationApp();
+    }
