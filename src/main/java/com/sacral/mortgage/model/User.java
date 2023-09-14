@@ -8,150 +8,111 @@ import javax.persistence.Id;
 @Entity
 public class User {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String identification;
-    private String proofOfIncome;
-    private String creditHistory;
-    private String employmentDetails;
-    private Double loanAmount;
-    private Double interestRate;
-    private Double repaymentPeriod;
-    private Double assessmentValue;
-    private Double approvedLoanAmount;
-    private String vendorName;
-    private Double paymentAmount;
-    private Double annualIncome;
-    private Integer creditScore;
-    private Boolean paymentApproved;
-    private Boolean paymentProcessIncomplete;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	private String identification;
+	private String proofOfIncome;
+	private String creditHistory;
+	private String employmentDetails;
+	private double annualIncome;
+	private int creditScore;
+	private double paymentAmount;
+	private String vendorName;
+	private double vehicleAssessmentValue;
+	private String reasonForDenial;
 
-    public Long getId() {
-        return id;
-    }
+	public User() {
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public String getIdentification() {
-        return identification;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public void setIdentification(String identification) {
-        this.identification = identification;
-    }
+	public String getIdentification() {
+		return identification;
+	}
 
-    public String getProofOfIncome() {
-        return proofOfIncome;
-    }
+	public void setIdentification(String identification) {
+		this.identification = identification;
+	}
 
-    public void setProofOfIncome(String proofOfIncome) {
-        this.proofOfIncome = proofOfIncome;
-    }
+	public String getProofOfIncome() {
+		return proofOfIncome;
+	}
 
-    public String getCreditHistory() {
-        return creditHistory;
-    }
+	public void setProofOfIncome(String proofOfIncome) {
+		this.proofOfIncome = proofOfIncome;
+	}
 
-    public void setCreditHistory(String creditHistory) {
-        this.creditHistory = creditHistory;
-    }
+	public String getCreditHistory() {
+		return creditHistory;
+	}
 
-    public String getEmploymentDetails() {
-        return employmentDetails;
-    }
+	public void setCreditHistory(String creditHistory) {
+		this.creditHistory = creditHistory;
+	}
 
-    public void setEmploymentDetails(String employmentDetails) {
-        this.employmentDetails = employmentDetails;
-    }
+	public String getEmploymentDetails() {
+		return employmentDetails;
+	}
 
-    public Double getLoanAmount() {
-        return loanAmount;
-    }
+	public void setEmploymentDetails(String employmentDetails) {
+		this.employmentDetails = employmentDetails;
+	}
 
-    public void setLoanAmount(Double loanAmount) {
-        this.loanAmount = loanAmount;
-    }
+	public double getAnnualIncome() {
+		return annualIncome;
+	}
 
-    public Double getInterestRate() {
-        return interestRate;
-    }
+	public void setAnnualIncome(double annualIncome) {
+		this.annualIncome = annualIncome;
+	}
 
-    public void setInterestRate(Double interestRate) {
-        this.interestRate = interestRate;
-    }
+	public int getCreditScore() {
+		return creditScore;
+	}
 
-    public Double getRepaymentPeriod() {
-        return repaymentPeriod;
-    }
+	public void setCreditScore(int creditScore) {
+		this.creditScore = creditScore;
+	}
 
-    public void setRepaymentPeriod(Double repaymentPeriod) {
-        this.repaymentPeriod = repaymentPeriod;
-    }
+	public double getPaymentAmount() {
+		return paymentAmount;
+	}
 
-    public Double getAssessmentValue() {
-        return assessmentValue;
-    }
+	public void setPaymentAmount(double paymentAmount) {
+		this.paymentAmount = paymentAmount;
+	}
 
-    public void setAssessmentValue(Double assessmentValue) {
-        this.assessmentValue = assessmentValue;
-    }
+	public String getVendorName() {
+		return vendorName;
+	}
 
-    public Double getApprovedLoanAmount() {
-        return approvedLoanAmount;
-    }
+	public void setVendorName(String vendorName) {
+		this.vendorName = vendorName;
+	}
 
-    public void setApprovedLoanAmount(Double approvedLoanAmount) {
-        this.approvedLoanAmount = approvedLoanAmount;
-    }
+	public double getVehicleAssessmentValue() {
+		return vehicleAssessmentValue;
+	}
 
-    public String getVendorName() {
-        return vendorName;
-    }
+	public void setVehicleAssessmentValue(double vehicleAssessmentValue) {
+		this.vehicleAssessmentValue = vehicleAssessmentValue;
+	}
 
-    public void setVendorName(String vendorName) {
-        this.vendorName = vendorName;
-    }
+	public String getReasonForDenial() {
+		return reasonForDenial;
+	}
 
-    public Double getPaymentAmount() {
-        return paymentAmount;
-    }
+	public void setReasonForDenial(String reasonForDenial) {
+		this.reasonForDenial = reasonForDenial;
+	}
 
-    public void setPaymentAmount(Double paymentAmount) {
-        this.paymentAmount = paymentAmount;
-    }
-
-    public Double getAnnualIncome() {
-        return annualIncome;
-    }
-
-    public void setAnnualIncome(Double annualIncome) {
-        this.annualIncome = annualIncome;
-    }
-
-    public Integer getCreditScore() {
-        return creditScore;
-    }
-
-    public void setCreditScore(Integer creditScore) {
-        this.creditScore = creditScore;
-    }
-
-    public Boolean isPaymentApproved() {
-        return paymentApproved;
-    }
-
-    public void setPaymentApproved(Boolean paymentApproved) {
-        this.paymentApproved = paymentApproved;
-    }
-
-    public Boolean isPaymentProcessIncomplete() {
-        return paymentProcessIncomplete;
-    }
-
-    public void setPaymentProcessIncomplete(Boolean paymentProcessIncomplete) {
-        this.paymentProcessIncomplete = paymentProcessIncomplete;
-    }
 }
+
+The reason for the denial field in the User model is used to store the reason for the denial of the mortgage application. It is used to track and log reasons for the denial of applications.
